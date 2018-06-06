@@ -5,28 +5,30 @@
     {{!-- left section --}}
     <div class='col-md-5'>
       <h2>Burgers to eat!</h2>
+        {{#each burger}}
+        <p class='text-left'>
+    {{#unless devoured}}
+      {{> burger/burger-block devoured=false}}
+    #{{id }}: {{burger_name}} 
+    {{/unless}}
+  {{/each}}
+        </p>
     </div>
     {{!-- middle section with submit button --}}
     <div class='col-md-2'>
-        <form action="/" method="POST">
-          <textarea type="text" name="movie" class= ></textarea>
-          <button class ='btn btn-lg btn-outline-light' type="submit">Add burger</button>
-        </form>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="addburger" class='text-warning' >Burger Name:</label>
+    <input type="text" id="addburger" name="name">
+  </div>
+
+  <button type="submit" class= 'btn btn-outline-light'>Add Burger</button>
+</form>
     </div>
     {{!-- right section --}}
     <div class='col-md-5'>
       <h2>Burgers devoured!</h2>
     </div>
-
-
-
   </div>
-    {{!-- {{#each movies}}
-        <h2>movie# {{id}}:  {{movie}}</h2>
-    {{/each}} --}}
-
-
-
-
 </div>
-
