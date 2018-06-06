@@ -6,13 +6,10 @@
     <div class='col-md-5'>
       <h2>Burgers to eat!</h2>
         {{#each burger}}
-        <p class='text-left'>
     {{#unless devoured}}
-      {{> burger/burger-block devoured=false}}
-    #{{id }}: {{burger_name}} 
+     <p class='text-left'> {{> burger/burger-block}} #{{id }}: {{burger_name}} </p>
     {{/unless}}
   {{/each}}
-        </p>
     </div>
     {{!-- middle section with submit button --}}
     <div class='col-md-2'>
@@ -23,12 +20,20 @@
     <input type="text" id="addburger" name="name">
   </div>
 
-  <button type="submit" class= 'btn btn-outline-light'>Add Burger</button>
+  <button type="submit" class= 'btn btn-outline-light' id='submit'>Add Burger</button>
 </form>
     </div>
     {{!-- right section --}}
     <div class='col-md-5'>
       <h2>Burgers devoured!</h2>
+              {{#each burger}}
+    {{#if devoured}}
+        <p class='text-left'>
+      {{> burger/burger-delete}}
+    #{{id }}: {{burger_name}}
+    </p> 
+    {{/if}}
+  {{/each}}
     </div>
   </div>
 </div>
