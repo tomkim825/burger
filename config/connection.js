@@ -1,9 +1,8 @@
 // -------mySQL init section----[START]-------
 var mysql = require("mysql");
 var connection;
-if (process.env.JAWSDB_URL){
-  connection = mysql.createConnection(process.env.JAWSDB_URL)
-} else {
+if (process.env.JAWSDB_URL){  connection = mysql.createConnection(process.env.JAWSDB_URL)  }  // if you have JAWSDB, use it.....Heroku uses JAWSDB  
+else { //OTHERWISE, use mysql-- for local machine
   connection = mysql.createConnection({
     host: "localhost",
     port: 3306,           // Your port; if not 3306
